@@ -1,0 +1,56 @@
+<div ng-show="!authenticated">
+<h3>Shops List</h3>
+<div class="alert alert-info" ng-bind-html="errorMsg" ng-show="items.length == 0">
+
+</div>
+<table class="table table-bordered table-striped" ng-show="items.length > 0">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Id</th>
+            <th>Shop Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in items">
+            <td>
+                <button class="btn btn-mini btn-danger" ng-click="deleteShop(item)">Delete</button>
+                <button class="btn btn-mini btn-primary" ng-click="editShop(item)">Edit</button>
+            </td>
+            <td>{{item.id}}</td>
+            <td>{{item.shopName}}</td>
+            <td>{{item.shopAdress}}</td>
+            <td>{{item.shopPhone}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="control-group">
+    <label class="control-label" for="shop_name">Shop Name</label>
+
+    <div class="controls">
+        <input type="text" id="shop_name" ng-model="newShop.shopName"
+               placeholder="Shop Name" required="required" min="2" />
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="shop_address">Shop Address</label>
+
+    <div class="controls">
+
+
+        <input class="span3" type="text" id="shop_address"
+               ng-model="newShop.shopAdress" placeholder="Address" required="required" min="1" />
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="shop_phone">Shop Phone</label>
+
+    <div class="controls">
+
+        <input class="span3" type="text" id="shop_phone"
+               ng-model="newShop.shopPhone" placeholder="Phone" required="required" min="1" />
+    </div>
+</div>
+    <button type="button" class="btn btn-primary" ng-click="addNewShop(newShop)">Add/Edit Shop</button></div>
